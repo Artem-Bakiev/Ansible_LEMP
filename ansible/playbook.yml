@@ -60,3 +60,14 @@
         state: "absent"
         login_user: "root"
         login_password: "password"
+
+    #Installing PHP
+
+    - name: "Installing php-fpm and php-mysql"
+      ansible.builtin.apt:
+        name: "{{ item }}"
+        state: "latest"
+        update_cache: true
+      with_items:
+        - "php-fpm"
+        - "php-mysql"
